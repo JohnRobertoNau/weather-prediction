@@ -1,7 +1,7 @@
 # Predicția ploii și a temperaturii în orașe europene
 
-Proiect Data Mining. Construim un dataset propriu de vreme zilnică pentru **40 de orașe europene (2020–2025)** și
-prezicem vremea de **a doua zi**:
+Construirea un dataset propriu de vreme zilnică pentru **40 de orașe europene (2020–2025)** și
+prezicerea vremii de **a doua zi**:
 
 - **clasificare:** plouă mâine? (`ploua_maine` = precipitații ≥ 1 mm)
 - **regresie:** temperatura maximă de mâine (`temp_max_maine`, °C)
@@ -51,7 +51,7 @@ Toate features-urile descriu **ziua curentă sau zilele trecute**; țintele desc
 Coloane care **nu** sunt features: `city_id`, `city`, `country`, `zone`, `date`, `year` (identificare) și
 `precip_maine` (doar pentru verificare).
 
-## 3. Analiză exploratorie (pe scurt)
+## 3. Analiză
 
 - **Dezechilibrul claselor:** 35,6% din zile sunt urmate de ploaie, deci un raport ~64/36. Variază mult între
   orașe: de la ~16% (Valletta, Sevilla) la ~59% (Bergen).
