@@ -30,6 +30,7 @@ Rezultat: **0 valori lipsă**.
 pip install -r requirements.txt
 python src/collect.py        # descarcă datele (o dată; scriptul așteaptă singur la limitele API-ului)
 python src/build_dataset.py  # construiește data/processed/weather_dataset.csv
+python src/make_figures.py   # generează graficele din secțiunea 3 în docs/figures/
 ```
 
 ## 2. Features (51)
