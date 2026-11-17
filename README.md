@@ -1,6 +1,6 @@
 # Predicția ploii și a temperaturii în orașe europene
 
-Construirea un dataset propriu de vreme zilnică pentru **40 de orașe europene (2020–2025)** și
+Construirea unui dataset propriu de vreme zilnică pentru **40 de orașe europene (2020–2025)** și
 prezicerea vremii de **a doua zi**:
 
 - **clasificare:** plouă mâine? (`ploua_maine` = precipitații ≥ 1 mm)
