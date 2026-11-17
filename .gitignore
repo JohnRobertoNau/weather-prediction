@@ -1,0 +1,15 @@
+# Raw API responses (large, can be re-downloaded with src/collect.py)
+data/raw/*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

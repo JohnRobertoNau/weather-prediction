@@ -1,0 +1,374 @@
+{
+  "rows_before_cleaning": 87680,
+  "rows": 87400,
+  "columns": 60,
+  "feature_columns": 51,
+  "cities": 40,
+  "date_min": "2020-01-07",
+  "date_max": "2025-12-30",
+  "rain_threshold_mm": 1.0,
+  "rain_tomorrow_share": 0.3557,
+  "remaining_missing_values": {},
+  "per_city": [
+    {
+      "city_id": "amsterdam",
+      "elevation": 5.0,
+      "grid_latitude": 52.40773,
+      "grid_longitude": 4.842301,
+      "timezone": "Europe/Amsterdam",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "athens",
+      "elevation": 92.0,
+      "grid_latitude": 37.996483,
+      "grid_longitude": 23.709677,
+      "timezone": "Europe/Athens",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "barcelona",
+      "elevation": 25.0,
+      "grid_latitude": 41.441124,
+      "grid_longitude": 2.2014387,
+      "timezone": "Europe/Madrid",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "belgrade",
+      "elevation": 169.0,
+      "grid_latitude": 44.815464,
+      "grid_longitude": 20.448223,
+      "timezone": "Europe/Belgrade",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "bergen",
+      "elevation": 14.0,
+      "grid_latitude": 60.42179,
+      "grid_longitude": 5.294118,
+      "timezone": "Europe/Oslo",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "berlin",
+      "elevation": 37.0,
+      "grid_latitude": 52.54833,
+      "grid_longitude": 13.407822,
+      "timezone": "Europe/Berlin",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "bordeaux",
+      "elevation": 16.0,
+      "grid_latitude": 44.815464,
+      "grid_longitude": -0.5563965,
+      "timezone": "Europe/Paris",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "brasov",
+      "elevation": 591.0,
+      "grid_latitude": 45.65905,
+      "grid_longitude": 25.653545,
+      "timezone": "Europe/Bucharest",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "brest",
+      "elevation": 55.0,
+      "grid_latitude": 48.4007,
+      "grid_longitude": -4.530182,
+      "timezone": "Europe/Paris",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "bucharest",
+      "elevation": 72.0,
+      "grid_latitude": 44.46397,
+      "grid_longitude": 26.088955,
+      "timezone": "Europe/Bucharest",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "budapest",
+      "elevation": 113.0,
+      "grid_latitude": 47.486816,
+      "grid_longitude": 19.06404,
+      "timezone": "Europe/Budapest",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "chamonix",
+      "elevation": 1041.0,
+      "grid_latitude": 46.010544,
+      "grid_longitude": 6.714286,
+      "timezone": "Europe/Paris",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "cluj_napoca",
+      "elevation": 341.0,
+      "grid_latitude": 46.78383,
+      "grid_longitude": 23.699516,
+      "timezone": "Europe/Bucharest",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "davos",
+      "elevation": 1569.0,
+      "grid_latitude": 46.85413,
+      "grid_longitude": 9.757282,
+      "timezone": "Europe/Zurich",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "dublin",
+      "elevation": 11.0,
+      "grid_latitude": 53.391914,
+      "grid_longitude": -6.171417,
+      "timezone": "Europe/Dublin",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "hamburg",
+      "elevation": 3.0,
+      "grid_latitude": 53.532513,
+      "grid_longitude": 9.980879,
+      "timezone": "Europe/Berlin",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "helsinki",
+      "elevation": 8.0,
+      "grid_latitude": 60.210896,
+      "grid_longitude": 25.023365,
+      "timezone": "Europe/Helsinki",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "iasi",
+      "elevation": 46.0,
+      "grid_latitude": 47.205624,
+      "grid_longitude": 27.601957,
+      "timezone": "Europe/Bucharest",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "innsbruck",
+      "elevation": 580.0,
+      "grid_latitude": 47.27592,
+      "grid_longitude": 11.32353,
+      "timezone": "Europe/Vienna",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "lisbon",
+      "elevation": 66.0,
+      "grid_latitude": 38.69947,
+      "grid_longitude": -9.196167,
+      "timezone": "Europe/Lisbon",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "london",
+      "elevation": 16.0,
+      "grid_latitude": 51.493847,
+      "grid_longitude": -0.1630249,
+      "timezone": "Europe/London",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "marseille",
+      "elevation": 6.0,
+      "grid_latitude": 43.26889,
+      "grid_longitude": 5.3811655,
+      "timezone": "Europe/Paris",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "naples",
+      "elevation": 19.0,
+      "grid_latitude": 40.878735,
+      "grid_longitude": 14.210526,
+      "timezone": "Europe/Rome",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "oslo",
+      "elevation": 21.0,
+      "grid_latitude": 59.8594,
+      "grid_longitude": 10.808314,
+      "timezone": "Europe/Oslo",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "palermo",
+      "elevation": 32.0,
+      "grid_latitude": 38.13708,
+      "grid_longitude": 13.342318,
+      "timezone": "Europe/Rome",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "porto",
+      "elevation": 88.0,
+      "grid_latitude": 41.159927,
+      "grid_longitude": -8.626617,
+      "timezone": "Europe/Lisbon",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "prague",
+      "elevation": 251.0,
+      "grid_latitude": 50.08787,
+      "grid_longitude": 14.475525,
+      "timezone": "Europe/Prague",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "reykjavik",
+      "elevation": 7.0,
+      "grid_latitude": 64.077324,
+      "grid_longitude": -21.957123,
+      "timezone": "Atlantic/Reykjavik",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "riga",
+      "elevation": 17.0,
+      "grid_latitude": 56.97715,
+      "grid_longitude": 24.113924,
+      "timezone": "Europe/Riga",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "rome",
+      "elevation": 58.0,
+      "grid_latitude": 41.862915,
+      "grid_longitude": 12.539912,
+      "timezone": "Europe/Rome",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "seville",
+      "elevation": 18.0,
+      "grid_latitude": 37.363796,
+      "grid_longitude": -5.976074,
+      "timezone": "Europe/Madrid",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "sofia",
+      "elevation": 548.0,
+      "grid_latitude": 42.7065,
+      "grid_longitude": 23.397343,
+      "timezone": "Europe/Sofia",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "split",
+      "elevation": 17.0,
+      "grid_latitude": 43.550087,
+      "grid_longitude": 16.37594,
+      "timezone": "Europe/Zagreb",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "stockholm",
+      "elevation": 24.0,
+      "grid_latitude": 59.36731,
+      "grid_longitude": 18.0,
+      "timezone": "Europe/Stockholm",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "tallinn",
+      "elevation": 10.0,
+      "grid_latitude": 59.437607,
+      "grid_longitude": 24.806377,
+      "timezone": "Europe/Tallinn",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "tromso",
+      "elevation": 16.0,
+      "grid_latitude": 69.63093,
+      "grid_longitude": 18.979591,
+      "timezone": "Europe/Oslo",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "valletta",
+      "elevation": 48.0,
+      "grid_latitude": 35.88752,
+      "grid_longitude": 14.534884,
+      "timezone": "Europe/Malta",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "vienna",
+      "elevation": 179.0,
+      "grid_latitude": 48.189804,
+      "grid_longitude": 16.377296,
+      "timezone": "Europe/Vienna",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "warsaw",
+      "elevation": 113.0,
+      "grid_latitude": 52.26713,
+      "grid_longitude": 20.961182,
+      "timezone": "Europe/Warsaw",
+      "rows": 2192,
+      "missing_values_raw": 0
+    },
+    {
+      "city_id": "zakopane",
+      "elevation": 819.0,
+      "grid_latitude": 49.384884,
+      "grid_longitude": 19.948452,
+      "timezone": "Europe/Warsaw",
+      "rows": 2192,
+      "missing_values_raw": 0
+    }
+  ]
+}
