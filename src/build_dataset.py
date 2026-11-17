@@ -56,12 +56,15 @@ def load_city(path: Path) -> tuple[pd.DataFrame, dict]:
     """Citește un JSON brut și întoarce un DataFrame zilnic + metadate."""
     raw = json.loads(path.read_text(encoding="utf-8"))
 
+    # PAS 1: se transforma JSON-ul in tabel
     daily = pd.DataFrame(raw["daily"])
     daily["date"] = pd.to_datetime(daily.pop("time"))
 
     hourly = pd.DataFrame(raw["hourly"])
     hourly["date"] = pd.to_datetime(hourly.pop("time")).dt.normalize()
-    # Medie pe ziua locală; o zi se păstrează doar dacă are cel puțin 20 de ore valide
+
+
+    # PAS 2: Medie pe ziua locală; o zi se păstrează doar dacă are cel puțin 20 de ore valide
     agg = hourly.groupby("date").agg(["mean", "count"])
     hourly_daily = pd.DataFrame(index=agg.index)
     for var in hourly.columns.drop("date"):
@@ -69,6 +72,8 @@ def load_city(path: Path) -> tuple[pd.DataFrame, dict]:
         hourly_daily[var] = mean.where(count >= 20)
     hourly_daily = hourly_daily.reset_index()
 
+
+    # PAS 3: combină datele zilnice cu mediile zilnice din datele orare
     df = daily.merge(hourly_daily, on="date", how="left").rename(columns=RENAME)
     meta = {
         "city_id": raw["_meta"]["city_id"] if "_meta" in raw else path.stem,
@@ -88,6 +93,8 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
     df["year"] = df["date"].dt.year
     df["month"] = df["date"].dt.month
     df["day_of_year"] = df["date"].dt.day_of_year
+
+    # Transformări trigonometrice pentru ziua anului (pentru a modela periodicitatea)
     df["doy_sin"] = np.sin(2 * np.pi * df["day_of_year"] / 365.25)
     df["doy_cos"] = np.cos(2 * np.pi * df["day_of_year"] / 365.25)
 
@@ -114,7 +121,7 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
     df["pressure_change_1d"] = df["pressure"] - df["pressure"].shift(1)
     df["temp_max_change_1d"] = df["temp_max"] - df["temp_max"].shift(1)
 
-    # Ținte (ziua următoare)
+    # PAS 6: calculeaza tintele: ploua_maine (precipitații mâine >= 1 mm) și temp_max_maine
     next_precip = df["precip"].shift(-1)
     df["ploua_maine"] = (next_precip >= RAIN_THRESHOLD_MM).astype("Int64").where(next_precip.notna())
     df["temp_max_maine"] = df["temp_max"].shift(-1)
@@ -138,7 +145,7 @@ def main() -> None:
             continue
         info = info.iloc[0]
 
-        # Verificăm că zilele sunt consecutive (altfel lag-urile ar fi greșite)
+        # PAS 4: Verificăm că zilele sunt consecutive (altfel lag-urile ar fi greșite)
         full_range = pd.date_range(df["date"].min(), df["date"].max(), freq="D")
         if len(full_range) != len(df):
             df = df.set_index("date").reindex(full_range).rename_axis("date").reset_index()
@@ -146,6 +153,7 @@ def main() -> None:
         missing_before = int(df.drop(columns="date").isna().sum().sum())
         df = add_features(df)
 
+        # PAS 7: adaugă coloanele de identificare ale orașului și păstrează doar rândurile cu date complete
         df.insert(0, "city_id", info["city_id"])
         df.insert(1, "city", info["city"])
         df.insert(2, "country", info["country"])
@@ -158,6 +166,7 @@ def main() -> None:
         print(f"{info['city']:<12} {len(df)} zile, altitudine {meta['elevation']} m, "
               f"valori lipsă brute: {missing_before}")
 
+    # PAS 8: combină toate orașele într-un singur DataFrame
     data = pd.concat(frames, ignore_index=True)
     rows_before = len(data)
 
@@ -169,6 +178,8 @@ def main() -> None:
     front = ["city_id", "city", "country", "zone", "date", "year", "month", "day_of_year",
              "latitude", "longitude", "elevation"]
     targets = ["ploua_maine", "temp_max_maine", "precip_maine"]
+
+    # Reordonăm coloanele și salvăm datasetul final
     data = data[front + [c for c in data.columns if c not in front + targets] + targets]
     data["date"] = data["date"].dt.strftime("%Y-%m-%d")
 

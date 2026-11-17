@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CITIES_CSV = ROOT / "data" / "cities.csv"
 RAW_DIR = ROOT / "data" / "raw"
 
-# Variabile cerute zilnic (agregate de API în ziua locală a orașului)
+# PAS 2: Variabile cerute zilnic (agregate de API în ziua locală a orașului)
 DAILY_VARS = [
     "weather_code",
     "temperature_2m_max",
@@ -51,7 +51,7 @@ HOURLY_VARS = [
 PAUSE_BETWEEN_CITIES = 20     # secunde între orașe, ca să rămânem sub limita pe minut
 MAX_RETRIES = 12
 
-
+# Pas3: trimite cererea la API 
 def fetch_city(lat: float, lon: float, start: str, end: str) -> dict:
     """Face cererea pentru un oraș; reîncearcă la erori de rețea și la limitele API-ului."""
     params = {
@@ -82,6 +82,7 @@ def fetch_city(lat: float, lon: float, start: str, end: str) -> dict:
         except ValueError:
             reason = resp.text[:200]
 
+        #Pas4: gestionarea erorilor, prea multe cereri, erori server, etc.
         if resp.status_code == 429:
             low = reason.lower()
             if "daily" in low:
@@ -112,7 +113,8 @@ def main() -> None:
     parser.add_argument("--force", action="store_true", help="suprascrie fișierele existente")
     args = parser.parse_args()
 
-    cities = pd.read_csv(CITIES_CSV)
+    # PAS 1: se citeste lista de orase
+    cities = pd.read_csv(CITIES_CSV)  # se citeste lista de orase
     if args.cities:
         unknown = set(args.cities) - set(cities["city_id"])
         if unknown:
@@ -134,7 +136,10 @@ def main() -> None:
 
         print(f"[{i}/{total}] {row.city}: descarc {args.start} .. {args.end}")
         data = fetch_city(row.latitude, row.longitude, args.start, args.end)
-        data["_meta"] = {
+
+
+        #PAS 5: se salveaza raspunsurile
+        data["_meta"] = {  
             "city_id": row.city_id,
             "requested_latitude": row.latitude,
             "requested_longitude": row.longitude,
